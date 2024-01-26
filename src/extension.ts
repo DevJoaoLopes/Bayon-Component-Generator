@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { getTemplates } from './FactoryCodes';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -17,13 +18,12 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.workspace.fs.createDirectory(uriParse);
 	};
 
-	//! criar templates para os arquivos criados
 	const createBayonReactComponent = (path: string, nameComponent: string) => {
 		const baseUri = `${path}/${nameComponent}/${nameComponent}`;
-		vscode.workspace.fs.writeFile(vscode.Uri.parse(path + '/' + nameComponent + '/index.ts'), new TextEncoder().encode('index')); //! criar template de importacao ts
-		vscode.workspace.fs.writeFile(vscode.Uri.parse(baseUri + '.styles.tsx'), new TextEncoder().encode('styles'));
-		vscode.workspace.fs.writeFile(vscode.Uri.parse(baseUri + '.tsx'), new TextEncoder().encode('component'));
-		vscode.workspace.fs.writeFile(vscode.Uri.parse(baseUri + '.test.tsx'), new TextEncoder().encode('test'));
+		vscode.workspace.fs.writeFile(vscode.Uri.parse(path + '/' + nameComponent + '/index.ts'), new TextEncoder().encode(getTemplates(nameComponent, 'INDEX')));
+		vscode.workspace.fs.writeFile(vscode.Uri.parse(baseUri + '.styles.tsx'), new TextEncoder().encode(getTemplates(nameComponent, 'STYLES')));
+		vscode.workspace.fs.writeFile(vscode.Uri.parse(baseUri + '.tsx'), new TextEncoder().encode(getTemplates(nameComponent, 'COMPONENT')));
+		vscode.workspace.fs.writeFile(vscode.Uri.parse(baseUri + '.test.tsx'), new TextEncoder().encode(getTemplates(nameComponent, 'TEST')));
 	};
 
 
@@ -44,7 +44,6 @@ export function activate(context: vscode.ExtensionContext) {
 		if(!inputBoxField || inputBoxField?.trim().length === 0) {
 			vscode.window.showErrorMessage('Nome digitado nao eh valido!!');
 		} else {
-			//! separar as funcoes
 			verifyPermissionWriteFile();
 			createBayonFolder(resource?.path, inputBoxField);
 			createBayonReactComponent(resource?.path, inputBoxField);
