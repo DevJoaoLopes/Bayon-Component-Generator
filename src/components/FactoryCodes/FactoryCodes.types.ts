@@ -1,0 +1,1 @@
+export type ITypes = 'COMPONENT' | 'STYLES' | 'INDEX' | 'TEST';
