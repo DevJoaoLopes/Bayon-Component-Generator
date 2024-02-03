@@ -1,4 +1,4 @@
-type ITypes = 'COMPONENT' | 'STYLES' | 'INDEX' | 'TEST';
+import type { ITypes } from './FactoryCodes.types';
 
 
 const codeTsComponent = (nameComponent: string) => (
@@ -59,13 +59,15 @@ const createComponent = (props = {}) => {
 
 
 
-export const getTemplates = (name: string, type: ITypes) => {
-    const dictionaryTemplate = {
-        'COMPONENT': codeTsComponent(name),
-        'STYLES': codeStyleComponent(),
-        'INDEX': codeIndex(name),
-        'TEST': codeTestComponent(name)
-    };
+const getTemplates = (name: string, type: ITypes) => {
+  const dictionaryTemplate = {
+    'COMPONENT': codeTsComponent(name),
+    'STYLES': codeStyleComponent(),
+    'INDEX': codeIndex(name),
+    'TEST': codeTestComponent(name)
+  };
 
-    return dictionaryTemplate[type];
+  return dictionaryTemplate[type];
 };
+
+export default getTemplates;

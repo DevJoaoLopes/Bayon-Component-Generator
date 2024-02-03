@@ -20,7 +20,17 @@
         "curly": "warn",
         "eqeqeq": "warn",
         "no-throw-literal": "warn",
-        "semi": "off"
+        "semi": "off",
+        "indent": [
+            "error",
+            2,
+            {
+                "SwitchCase": 1,
+                "ignoredNodes": ["TemplateLiteral"]
+              }
+        ],
+        "quotes": [1, "single", { "avoidEscape": true }],
+        "object-curly-spacing": ["error", "always"]
     },
     "ignorePatterns": [
         "out",
