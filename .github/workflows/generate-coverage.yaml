@@ -16,12 +16,11 @@ jobs:
             
             - name: Run install
               uses: borales/actions-yarn@v4
-
-            - name: Install packages
-              run: pnpm install
+              with:
+                cmd: install
 
             - name: compile aplication
-              run: pnpm compile
+              run: yarn compile
 
     lint:
         needs: build
@@ -38,12 +37,11 @@ jobs:
             
             - name: Run install
               uses: borales/actions-yarn@v4
-
-            - name: Install packages
-              run: pnpm install
+              with:
+                cmd: install
 
             - name: Lint
-              run:  pnpm lint
+              run:  yarn lint
 
     test-coverage:
         needs: lint
@@ -60,9 +58,8 @@ jobs:
             
             - name: Run install
               uses: borales/actions-yarn@v4
-
-            - name: Install packages
-              run: pnpm install
+              with:
+                cmd: install
 
             - name: Generated report coverage
-              run:  pnpm coverage
+              run:  yarn coverage
