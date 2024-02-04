@@ -2,7 +2,55 @@ name: 'Report coverage tests'
 on: push
 
 jobs:
+    build: 
+        runs-on: ubuntu-latest
+
+        steps: 
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Setup node 
+              uses: actions/setup-node@v3
+              with: 
+                node-version: 18.18.x
+            
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                version: 8
+
+            - name: Install packages
+              run: pnpm install
+
+            - name: compile aplication
+              run: pnpm compile
+
+    lint:
+        needs: build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Setup node 
+              uses: actions/setup-node@v3
+              with: 
+                node-version: 18.18.x
+            
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                version: 8
+
+            - name: Install packages
+              run: pnpm install
+
+            - name: Lint
+              run:  pnpm lint
+
     test-coverage:
+        needs: lint
         runs-on: ubuntu-latest
 
         steps:
