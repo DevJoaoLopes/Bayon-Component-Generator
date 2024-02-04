@@ -4,7 +4,7 @@
   "displayName": "Bayon Component Generator",
   "description": "Extension for generate components using Bayon Design System in React",
   "icon": "art/icon.png",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/DevJoaoLopes/Bayon-Component-Generator"
@@ -13,7 +13,13 @@
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other"
+    "Snippets"
+  ],
+  "keywords": [
+    "Bayon",
+    "React",
+    "Component Generator",
+    "Jest"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
