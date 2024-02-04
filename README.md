@@ -1,71 +1,90 @@
-# bayon-component-generator README
+<p align="center">
+  <br />
+  <a title="bayon" href="https://github.com/DevJoaoLopes/Bayon-Component-Generator"><img src="art/icon.png" alt="Bayon Logo" width="20%" /></a>
+</p>
 
-This is the README for your extension "bayon-component-generator". After writing up a brief description, we recommend including the following sections.
 
-## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+# Component Generator
 
-For example if there is an image subfolder under your extension project workspace:
+Helps in creating your React component, generating files and boilerplates for its development.
 
-\!\[feature X\]\(images/feature-x.png\)
+# How to use
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+* Install the extension.
+* In your explorer, right-click and select **Bayon Generate Component**
+* Enter the name of the component to be created in the input.
 
-## Requirements
+![Alt Text](art/extension.gif)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Files
 
-## Extension Settings
+#### Component React
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```typescript
 
-For example:
+import React from 'react';
+import * as Styles from './NameComponent.styles'
 
-This extension contributes the following settings:
+export const NameComponent = () => {
+    return (
+        <Styles.Container>
+          <div></div>
+        </Styles.Container>
+    );
+};
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```
 
-## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+#### Component Styled
 
-## Release Notes
+```typescript
 
-Users appreciate release notes as you update your extension.
+import { styled } from '@bayon/commons';
 
-### 1.0.0
+export const Container = styled('div')(() => ({
+  display: 'flex',
+  boxSizing: 'border-box',
+}));
 
-Initial release of ...
+```
 
-### 1.0.1
 
-Fixed issue #.
+#### Index exported
 
-### 1.1.0
+```typescript
 
-Added features X, Y, and Z.
+export { NameComponent } from './NameComponent';
+```
 
----
 
-## Following extension guidelines
+#### Component Test with Jest
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+```typescript
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+import React from 'react';
+import { render, screen } from '@bayon/testing';
 
-## Working with Markdown
+import { NameComponent } from './NameComponent';
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+describe('<NameComponent />', () => {
+  it('should render component', () => {
+    createComponent();
+    expect(screen.getByText('')).toBeInTheDocument();
+  });
+});
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+const createComponent = (props = {}) => {
+  const defaultProps = {
+    ...props,
+  };
 
-## For more information
+  return render(<NameComponent {...defaultProps} />);
+};
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+```
 
-**Enjoy!**
+# License
+
+[GPL-3.0](LICENSE.md) &copy; Joao Victor Faustino Piga Lopes

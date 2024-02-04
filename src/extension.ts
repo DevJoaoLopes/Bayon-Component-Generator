@@ -14,17 +14,17 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.window.showInformationMessage('Generate from bayon-component-generator!');
 
     let inputBoxField = await vscode.window.showInputBox({
-      placeHolder: 'Digite o nome do componente',
-      prompt: 'Crie o nome preferencialmente em PascalCase'
+      placeHolder: 'Enter the component name',
+      prompt: 'Create the name preferably in PascalCase'
     });
 
     if(!inputBoxField || inputBoxField?.trim().length === 0) {
-      vscode.window.showErrorMessage('Nome digitado nao eh valido!!');
+      vscode.window.showErrorMessage('Name entered is not valid!!');
     } else {
       verifyPermissionWriteFile();
       createBayonFolder(resource?.path, inputBoxField);
       createBayonReactComponent(resource?.path, inputBoxField);
-      vscode.window.showInformationMessage(`Criado componente ${inputBoxField}`);
+      vscode.window.showInformationMessage(`Component created ${inputBoxField}`);
     }
   });
 
