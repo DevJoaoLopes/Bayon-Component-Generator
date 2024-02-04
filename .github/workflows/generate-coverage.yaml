@@ -14,10 +14,8 @@ jobs:
               with: 
                 node-version: 18.18.x
             
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                version: 8
+            - name: Run install
+              uses: borales/actions-yarn@v4
 
             - name: Install packages
               run: pnpm install
@@ -38,10 +36,8 @@ jobs:
               with: 
                 node-version: 18.18.x
             
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                version: 8
+            - name: Run install
+              uses: borales/actions-yarn@v4
 
             - name: Install packages
               run: pnpm install
@@ -62,10 +58,8 @@ jobs:
               with: 
                 node-version: 18.18.x
             
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                version: 8
+            - name: Run install
+              uses: borales/actions-yarn@v4
 
             - name: Install packages
               run: pnpm install
