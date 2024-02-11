@@ -50,7 +50,7 @@ describe('Extension Test Suite', () => {
 
     verifyPermissionWriteFile();
 
-    expect(showErrorMessageMock).toHaveBeenCalledWith('Sistema nao permite a criacao de arquivos !!');
+    expect(showErrorMessageMock).toHaveBeenCalledWith('System does not allow creating files!!');
   });
 
   it('não deve mostrar uma mensagem de erro se o sistema permitir a escrita de arquivos', () => {
