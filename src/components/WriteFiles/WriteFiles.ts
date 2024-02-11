@@ -3,7 +3,7 @@ import { getTemplates } from '../';
 
 export const verifyPermissionWriteFile = () => {
   if(!vscode.workspace.fs.isWritableFileSystem('file')) {
-    return vscode.window.showErrorMessage('Sistema nao permite a criacao de arquivos !!');
+    return vscode.window.showErrorMessage('System does not allow creating files!!');
   }
 };
 
