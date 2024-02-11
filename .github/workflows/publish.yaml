@@ -13,8 +13,8 @@ jobs:
       
       - name: Setup node 
         uses: actions/setup-node@v3
-          with: 
-            node-version: 18.18.x
+        with: 
+          node-version: 18.18.x
 
       - name: Run install
         uses: borales/actions-yarn@v4
