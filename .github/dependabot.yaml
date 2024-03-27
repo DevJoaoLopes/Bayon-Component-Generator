@@ -13,3 +13,5 @@ updates:
         versions: ["6.x"]
       - dependency-name: "eslint"
         versions: ["8.x"]
+      - dependency-name: "@types/vscode"
+        versions: ["1.85.0"]
