@@ -5,13 +5,7 @@ updates:
     schedule:
       interval: weekly
       time: "08:00"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: "@typescript-eslint/eslint-plugin"
-        versions: ["6.x"]
-      - dependency-name: "@typescript-eslint/parser"
-        versions: ["6.x"]
-      - dependency-name: "eslint"
-        versions: ["8.x"]
       - dependency-name: "@types/vscode"
         versions: ["1.85.0"]

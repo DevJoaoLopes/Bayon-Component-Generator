@@ -1,0 +1,21 @@
+name: 'build'
+on: 
+  workflow_call: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Setup node 
+          uses: actions/setup-node@v4
+            
+        - name: Run install
+          uses: borales/actions-yarn@v4
+          with:
+            cmd: install
+
+        - name: compile aplication
+          run: yarn compile
