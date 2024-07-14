@@ -8,8 +8,8 @@ jobs:
     coverage:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - uses: ArtiomTr/jest-coverage-report-action@v2
               with:
                 package-manager: yarn
-                github-token: ${{ secrets.COMPONENT_GENERATOR_SECRET }}
+                # github-token: ${{ secrets.COMPONENT_GENERATOR_SECRET }}
