@@ -11,7 +11,7 @@ jobs:
         - name: Setup node 
           uses: actions/setup-node@v4
           with:
-            node-version: latest
+            node-version: 20.x
             
         - name: Run install
           uses: borales/actions-yarn@v4
@@ -28,6 +28,7 @@ jobs:
           uses: ArtiomTr/jest-coverage-report-action@v2
           env:
             NODE_OPTIONS: '--max_old_space_size=4096'
-          with:
+          with: 
+            package-manager: yarn
             test-script: yarn jest --coverage --silent --json --outputFile=report.json
-            coverage-file: ../../report.json
+            coverage-file: report.json
