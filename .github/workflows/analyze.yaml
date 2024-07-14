@@ -26,6 +26,8 @@ jobs:
 
         - name: coverage
           uses: ArtiomTr/jest-coverage-report-action@v2
+          env:
+            NODE_OPTIONS: '--max_old_space_size=4096'
           with:
             test-script: yarn jest --coverage --silent --json --outputFile=report.json
             coverage-file: ../../report.json
