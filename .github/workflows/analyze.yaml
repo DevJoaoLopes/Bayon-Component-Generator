@@ -18,8 +18,8 @@ jobs:
           with:
             cmd: install
 
-        # - name: compile aplication
-        #   run: yarn compile
+        - name: compile aplication
+          run: yarn compile
 
         - name: coverage
           uses: ArtiomTr/jest-coverage-report-action@v2
