@@ -18,25 +18,11 @@ jobs:
           with:
             cmd: install
 
-        # - name: compile aplication
-        #   run: yarn compile
+        - name: compile aplication
+          run: yarn compile
 
         - name: lint
           run: yarn lint
 
-        - name: Save coverage report
-          uses: actions/upload-artifact@v3
-          with:
-            name: coverage-report
-            path: coverage
-            retention-days: 1
-
-        - name: coverage
-          uses: ArtiomTr/jest-coverage-report-action@v2
-          with: 
-            package-manager: yarn
-            test-script: yarn jest --coverage --silent --json --outputFile=report.json
-            # coverage-file: report.json
-            coverage-file: ./coverage/report.json
-            base-coverage-file: ./coverage/report.json # this line added
-            skip-step: all
+        - name: test
+          run: yarn coverage
