@@ -1,65 +1,15 @@
-name: 'Report coverage tests'
-on: push
+name: 'Generate coverage'
+on:
+    pull_request_target:
+        branches:
+            - master
 
 jobs:
-    build: 
+    coverage:
         runs-on: ubuntu-latest
-
-        steps: 
-            - name: Checkout
-              uses: actions/checkout@v3
-
-            - name: Setup node 
-              uses: actions/setup-node@v3
-              with: 
-                node-version: 18.18.x
-            
-            - name: Run install
-              uses: borales/actions-yarn@v4
-              with:
-                cmd: install
-
-            - name: compile aplication
-              run: yarn compile
-
-    lint:
-        needs: build
-        runs-on: ubuntu-latest
-
         steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-
-            - name: Setup node 
-              uses: actions/setup-node@v3
-              with: 
-                node-version: 18.18.x
-            
-            - name: Run install
-              uses: borales/actions-yarn@v4
+            - uses: actions/checkout@v3
+            - uses: ArtiomTr/jest-coverage-report-action@v2
               with:
-                cmd: install
-
-            - name: Lint
-              run:  yarn lint
-
-    test-coverage:
-        needs: lint
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-
-            - name: Setup node 
-              uses: actions/setup-node@v3
-              with: 
-                node-version: 18.18.x
-            
-            - name: Run install
-              uses: borales/actions-yarn@v4
-              with:
-                cmd: install
-
-            - name: Generated report coverage
-              run:  yarn coverage
+                package-manager: yarn
+                # test-script: yarn jest --coverage --silent --json --outputFile=report.json
