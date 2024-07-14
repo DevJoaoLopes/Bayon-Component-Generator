@@ -8,4 +8,13 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js'],
   testMatch: ['**/__tests__/**/*.ts'],
   transformIgnorePatterns: ['/node_modules/', '/__mocks__/vscode.js'],
+  coverageThreshold: {
+    global: {
+      branches: 90,
+      functions: 90,
+      lines: 90,
+      statements: 90,
+    },
+  },
+  coveragePathIgnorePatterns: ['index.ts'],
 };
