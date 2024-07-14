@@ -13,7 +13,7 @@ module.exports = {
       branches: 90,
       functions: 90,
       lines: 90,
-      statements: 90,
+      statements: 95,
     },
   },
   coveragePathIgnorePatterns: ['index.ts'],
