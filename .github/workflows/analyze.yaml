@@ -21,8 +21,11 @@ jobs:
         - name: compile aplication
           run: yarn compile
 
+        - name: lint
+          run: yarn lint
+
         - name: coverage
           uses: ArtiomTr/jest-coverage-report-action@v2
           with:
-            test-script: yarn jest --coverage --silent
-            coverage-file: ./coverage/coverage-final.json
+            test-script: yarn jest --coverage --silent --json --outputFile=report.json
+            coverage-file: ../../report.json
