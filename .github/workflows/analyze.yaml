@@ -1,0 +1,28 @@
+name: 'Application analysis'
+on: push
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps: 
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Setup node 
+          uses: actions/setup-node@v4
+          with:
+            node-version: latest
+            
+        - name: Run install
+          uses: borales/actions-yarn@v4
+          with:
+            cmd: install
+
+        # - name: compile aplication
+        #   run: yarn compile
+
+        - name: coverage
+          uses: ArtiomTr/jest-coverage-report-action@v2
+          with:
+            test-script: yarn jest --coverage --silent
+            coverage-file: ./coverage/coverage-final.json
