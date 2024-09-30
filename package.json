@@ -51,7 +51,7 @@
     "coverage": "jest --coverage --silent"
   },
   "devDependencies": {
-    "webpack": "^5.91.0",
+    "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
     "@babel/core": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
