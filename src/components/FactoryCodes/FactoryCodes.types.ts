@@ -1,1 +1,1 @@
-export type ITypes = 'COMPONENT' | 'STYLES' | 'INDEX' | 'TEST';
+export type ITypes = 'COMPONENT' | 'INDEX' | 'TEST';

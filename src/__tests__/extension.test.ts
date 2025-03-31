@@ -29,10 +29,6 @@ describe('Extension Test Suite', () => {
       expect.any(Uint8Array)
     );
     expect(workspace.fs.writeFile).toHaveBeenCalledWith(
-      Uri.parse(`${path}/${nameComponent}/${nameComponent}.styles.tsx`),
-      expect.any(Uint8Array)
-    );
-    expect(workspace.fs.writeFile).toHaveBeenCalledWith(
       Uri.parse(`${path}/${nameComponent}/${nameComponent}.tsx`),
       expect.any(Uint8Array)
     );
