@@ -37,20 +37,6 @@ export const NameComponent = () => {
 ```
 
 
-#### Component Styled
-
-```typescript
-
-import { styled } from '@bayon/commons';
-
-export const Container = styled('div')(() => ({
-  display: 'flex',
-  boxSizing: 'border-box',
-}));
-
-```
-
-
 #### Index exported
 
 ```typescript
@@ -87,4 +73,4 @@ const createComponent = (props = {}) => {
 
 # License
 
-[GPL-3.0](LICENSE.md) &copy; Joao Victor Faustino Piga Lopes
+[GPL-3.0](LICENSE.md) &copy; DevJoaoLopes
